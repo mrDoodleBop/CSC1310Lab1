@@ -1,3 +1,3 @@
-# CSC1310Lab1
+# GitWorkin!
 
 #This is the README.md
