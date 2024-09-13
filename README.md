@@ -20,7 +20,7 @@
 
 #Individual Collaborator Roles:
 #     1. Michael Cates
-#           - Student Class file and driver file
+#           - Student Class, Assignment Class, and Driver Files
 
 #     2. Mackenzie Raleigh 
 #           - Course class files
