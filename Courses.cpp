@@ -4,4 +4,13 @@
     Purpose : 
 */
 
+#include "Courses.h"
+
+
+//Function Definitions:
+string Courses::getName(){
+    return name;
+}
+
+
 
