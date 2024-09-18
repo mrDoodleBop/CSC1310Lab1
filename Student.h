@@ -1,7 +1,7 @@
 /*
     File Name : Student.h
     Author Name : Michael Cates
-    Purpose : Header file for the Student class
+    Purpose : Header file for the Student class of the GitWorkin! program
 */
 
 #ifndef STUDENT_H
@@ -22,7 +22,7 @@ class Student  {
         int age;
         int year;
         //vector pointing to a list of Courses type
-        vector <Courses> myCourses;
+        vector <Courses> myCourses; // --> eventually it will be a pointer
 
     public:
         //Constructors:

@@ -1,7 +1,7 @@
 /*
     File Name : Student.cpp
     Author Name : Michael Cates
-    Purpose : 
+    Purpose : Class definition file for GitWorkin! program
 */
 
 #include "Student.h"
@@ -32,21 +32,14 @@ void Student::printStudentInfo(){
 }//end of printStudentInfo() function
 
 
-
-
-
-
+//just a tester main, not meant for release
 int main(){
 
     Courses newCourse1("CSC 1310", "Section 001", 95.2);
     Courses newCourse2("HIST 2010", "Section 005", 67.9);
     Courses newCourse3("GEOL 1045", "Section 004", 84.5);
 
-    vector <Courses> myCourses;
-
-    myCourses.push_back(newCourse1);
-    myCourses.push_back(newCourse2);
-    myCourses.push_back(newCourse3);
+    vector <Courses> myCourses{newCourse1, newCourse2, newCourse3};
 
     Student newStudent("Mike", 20, 3, myCourses);
 
