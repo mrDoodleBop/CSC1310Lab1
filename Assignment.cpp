@@ -1,6 +1,5 @@
 /*
     File Name : Assignment.cpp
-    Author Name : 
+    Author Name : Michael Cates
     Purpose : 
 */
-

@@ -1,6 +1,6 @@
 /*
     File Name : Assignment.h
-    Author Name : 
+    Author Name : Michael Cates
     Purpose : 
 */
 
