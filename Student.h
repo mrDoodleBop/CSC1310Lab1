@@ -7,7 +7,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include "Courses.cpp"
+#include "Courses.h"
 
 #include <iostream>
 #include <string>

@@ -29,11 +29,7 @@ class Courses {
             cout << "\nCourse created.";
         }
 
-        Courses(string name, string section, double grade){
-            name = name;
-            section = section;
-            grade = grade;
-        }
+        Courses(string studentName, string studentSection, double studentGrade);
 
         //Member Functions
         string getName();
