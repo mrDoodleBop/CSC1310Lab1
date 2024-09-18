@@ -25,30 +25,25 @@ class Courses{
         //vector <Assignment>* myAssignments; --> you may uncomment this when the Assignment class has been created :)
     
     public:
-        //Constructors:
-        Courses::Courses(){
+        //Constructors\\:
+        Courses(){
             
-            cout << "\nDefault course created.";
-            name = "N/A";
-            section = "N/A";
-            grade = 0.0;
+            this->name = "N/A";
+            this->section = "N/A";
+            this->grade = 0.0;
 
         }//end of default constructor
 
-        Courses::Courses(string studentName, string studentSection, double studentGrade){
+        Courses(string studentName, string studentSection, double studentGrade){
 
-            cout << "\nName passed: " << name; 
-            name = studentName;
+            this->name = studentName;
+            this->section = studentSection;
+            this->grade = studentGrade;
 
-            cout << "\nThis name: " << name;
-            cout << "\n" << getName();
+        }//end of overloaded constructor
 
-            section = studentSection;
-            grade = studentGrade;
 
-        }//end of Courses() constructor method
-
-        //Member Functions
+        //Member Functions\\:
         string getName();
 
 };//end of Courses class
