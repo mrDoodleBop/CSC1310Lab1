@@ -15,4 +15,14 @@ string Courses::getName(){
 
 }//end of getName() constructor function
 
+void Courses::printInfo(){
+
+    cout << "\nInfo: " << this->name;
+    cout << "\nInfo: " << this->section;
+    cout << "\nInfo: " << this->grade;
+
+}//end of printInfo function
+
+
+
 

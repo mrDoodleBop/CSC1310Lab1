@@ -32,6 +32,8 @@ class Courses{
             this->section = "N/A";
             this->grade = 0.0;
 
+            cout << "\nDefault has been called";
+
         }//end of default constructor
 
         Courses(string studentName, string studentSection, double studentGrade){
@@ -45,6 +47,7 @@ class Courses{
 
         //Member Functions\\:
         string getName();
+        void printInfo();
 
 };//end of Courses class
 
