@@ -21,8 +21,8 @@ class Student  {
         string name;
         int age;
         int year;
-        //vector pointing to a list of Courses type
-        vector <Courses> myCourses; // --> eventually it will be a pointer
+        //vector of Courses type
+        vector <Courses> myCourses;
 
     public:
         //Constructors:
