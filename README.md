@@ -48,6 +48,13 @@
 # 
 # 
 #   Driver file:
+#       --> This is the main file that the program will be run off of. The user should be able to compile the driver file alone and the program work #           as intented
+#
+#       - This file will run off of a main loop that runs so long as the user wants it to, and stops when the user tells it to
+#           - This will be done using a while loop using characters 'y', 'Y', 'n', or 'N' as the condition flags
+#
+#       1. The program begins by asking the user if they would like to set up a student data base to begin working on their planner
+#           -> If the user says yes, then the program will continue, otherwise, it will stop and display a goodbye message
 # 
 # 
 # 

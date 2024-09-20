@@ -24,5 +24,3 @@ void Courses::printInfo(){
 }//end of printInfo function
 
 
-
-
