@@ -60,10 +60,10 @@
 # 
 #   Individual Collaborator Roles:
 #     1. Michael Cates
-#           - Student Class and Driver Files
+#           - Student Class, Course Class Files, and Driver File
 # 
 #     2. Mackenzie Raleigh 
-#           - Course class files
+#           - 
 # 
 #     3. Nino Chindavanh 
 #           - Function file and Assignment Class
