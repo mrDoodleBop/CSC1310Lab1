@@ -35,7 +35,7 @@ int main(){
         system("CLS");
         cout << "\n\n\t\t\t|----------Menu----------|";
         cout << "\n\t\t------What would you like to do?-----";
-        cout << "\n\t\t\t\t1. Create a New Student";
+        cout << "\n\t\t1. Create a New Student";
         cout << "\n\t\t2. Add/ Remove a Course";
         cout << "\n\t\t3. Add/ Remove an Assignment to a course";
         cout << "\n\t\t4. End Program";
@@ -44,6 +44,8 @@ int main(){
         //Taking in the user's choice:
         cout << "\n\n\t\tEnter your choice: ";
         cin >> userChoice;
+
+        cin.ignore();
 
         system("CLS");
 
@@ -81,7 +83,7 @@ int main(){
             getline(cin, userName);
 
             //Asking the user their age:
-            cout << "\nPlease enter your name: ";
+            cout << "\nPlease enter your age: ";
             cin >> userAge;
 
             //Asking the user their year:
@@ -90,10 +92,11 @@ int main(){
 
             //Taking in the current courses that the user has:
             //-->first by asking how many courses the student is taking:
-            cout << "\n\nHow many courses are you taking this semester? ";
+            cout << "\n\nHow many courses are you taking this semester? Enter an integer: ";
             cin >> numCourses;
 
-            cout << "\t\t-----Creating a New Course!-----";
+            system("CLS");
+            cout << "\n\t\t-----Creating a New Course!-----";
 
             for(int i = 0; i < numCourses; i++){
 
@@ -102,7 +105,7 @@ int main(){
                 getline(cin, courseName);
                 
 
-                cout << "\n\t\tEnter the course section for " << courseName;
+                cout << "\n\t\tEnter the course section for " << courseName << ": ";
                 getline(cin, courseSection);
 
                 cout << "\n\t\tEnter your current grade in " << courseName << " - " << courseSection << ": ";
@@ -111,6 +114,15 @@ int main(){
                 //Checking if the user has any current assignments:
                 cout << "\n\t\tDo you have any current assignments in " << courseName << " - " << courseSection << "? (y/n): ";
                 cin >> hasAssignments;
+
+                /*
+                --> This is a problem that I ran into with creating classes using the switch statement 
+                    I have learned that you need to declare the class outside of the switch to correct the 
+                    scope of the class
+                */
+
+               Assignment userAssignment; //Assignment object to store a new userAssignment
+               Courses userCourse; //Courses object to store a new userCourse
 
                 //branching based off if the student has any current assignments or not:
                 switch(hasAssignments){
@@ -121,24 +133,27 @@ int main(){
                         cin >> numAssignments;
 
                         //Creating each assignment:
-                        for(int i = 0; i < numAssignments; i++){
+                        for(int j = 0; j < numAssignments; j++){
                             
                             //taking in the assignment name:
-                            cout << "\n\t\tEnter the assignment name: ";
+                            cout << "\n\t\tEnter assignment " << j+1 << "'s name: ";
                             cin.ignore();
                             getline(cin, assignmentName);
 
                             //taking in the due date:
-                            cout << "\n\t\tEnter the assignment due date (mm/dd/yyyy): ";
+                            cout << "\n\t\tEnter assignment " << j+1 << "'s due date (mm/dd/yyyy): ";
                             getline(cin, assignmentDueDate);
 
                             //taking in the priority level:
-                            cout << "\n\t\tEnter the assignment priority level (1-5): ";
+                            cout << "\n\t\tEnter assignment " << j+1 << "'s priority level (1-5): ";
                             cin >> assignmentPriorityLevel;
 
+                            //validating that user input is within the correct range:
                             while(assignmentPriorityLevel > 5 || assignmentPriorityLevel < 1){
-                                cout << "\n\t\tUh oh! You entered a number outside of the range! Enter a number between 1 and 5: ";
+
+                                cout << "\n\t\tUh oh! You entered a number outside of the range!\n\t\tEnter a number between 1 and 5: ";
                                 cin >> assignmentPriorityLevel;
+
                             }//end of while loop
 
                             //taking in the assignment notes:
@@ -146,17 +161,40 @@ int main(){
                             cin.ignore();
                             getline(cin, assignmentNotes);
 
+                            //validating that user input is within the correct range:
+                            while(assignmentNotes.size() > 75){
+
+                                cout << "\n\t\tUh oh! Your notes for this assignment are too long!\n\t\tPlease enter notes within 75 characters: ";
+                                cin >> assignmentNotes;
+
+                            }
+
                             //creating the assignment object and adding it to the vector:
-                            Assignment userAssignment(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
+                            userAssignment = Assignment(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
 
                             userAssignments.push_back(userAssignment);
+
 
                         }//end of for loop creating assignments vector
 
                         //adding the course to the list of user courses:
-                        Courses userCourse = Courses(courseName, courseSection, currentGrade, userAssignments);
+                        userCourse = Courses(courseName, courseSection, currentGrade, userAssignments);
 
                         userCourses.push_back(userCourse);
+
+
+                        /*
+                        -->THIS IS TESTER CODE TO MAKE SURE THE 
+                        PROGRAM IS WORKING CORRECTLY UP TO THIS POINT
+                        */
+                        //printing all course info for each course:
+                        for(int j = 0; j < userCourses.size(); j++){
+
+                            userCourses[i].printInfo();
+
+                        }
+
+
                         break;
 
 

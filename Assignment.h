@@ -42,6 +42,11 @@ class Assignment
         }          
         
         // destructor
+        //~Assignment();
+
+
+        //Methods:
+        void getInfo();
 
 };
 

@@ -17,22 +17,20 @@ string Courses::getName(){
 
 void Courses::printInfo(){
 
-    cout << "\nInfo: " << this->name;
-    cout << "\nInfo: " << this->section;
-    cout << "\nInfo: " << this->grade;
+    system("CLS");
+    cout << "\n\t\t|----------Your Course----------|";
+    cout << "\n\t\tName: " << name;
+    cout << "\n\t\tSection: " << section;
+    cout << "\n\t\tCurrent Grade: " << grade;
 
-    /*
-    //Printing all the current assignments for the course:
-    
-    -->this for loop will not work for the time being because the 
-    getName() function has not yet been added to the Assignment class
-    
+    cout << "\n\t\t|----------Your Current Assignments----------|";
+
+    //Running a for loop to access each assignment in the vector and call the getInfo function:
     for(int i = 0; i < myAssignments.size(); i++){
 
-        cout << "\nAssignment " << i << ": " << myAssignments(i).getName();
+        myAssignments[i].getInfo();
 
     }//end of for loop
-    */
 
 }//end of printInfo function
 

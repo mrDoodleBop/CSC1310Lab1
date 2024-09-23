@@ -1,6 +1,9 @@
 /*
     File Name : gitWorkinFunctions.cpp
-    Author Name : 
-    Purpose : 
+    Author Name : Michael Cates
+    Purpose : Hold all other functions for the gitWorkin program
 */
+
+
+
 
