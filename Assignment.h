@@ -18,10 +18,11 @@ class Assignment
         string name;
         string dueDate;         // (mm/dd/yyyy)
         int priorityLevel;      // (1-5)
-        char notes;             // (Limited to 75 Characters)
+        string notes;             // (Limited to 75 Characters)
 
     public:
-        Assignment()            // constructor
+        //default constructor:
+        Assignment()
         {
         // overloaded constructor takes in info
         name = "John Doe";
@@ -30,7 +31,17 @@ class Assignment
         // notes;
         }
 
-        Assignment(string assignmentName);          // destructor
+        //overloaded constructor:
+        Assignment(string assignmentName, string assignmentDueDate, int assignmentPriorityLevel, string assignmentNotes){
+
+            name = assignmentName;
+            dueDate = assignmentDueDate;
+            priorityLevel = assignmentPriorityLevel;
+            notes = assignmentNotes;
+
+        }          
+        
+        // destructor
 
 };
 

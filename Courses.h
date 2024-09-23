@@ -7,7 +7,7 @@
 #ifndef COURSES_H
 #define COURSES_H
 
-//#include "Assignment.h"
+#include "Assignment.h"
 
 #include <iostream>
 #include <string>
@@ -19,10 +19,10 @@ using namespace std;
 class Courses{
 
     private:
-        string name;
-        string section;
-        double grade;
-        //vector <Assignment>* myAssignments; --> you may uncomment this when the Assignment class has been created :)
+        string name; //name of the course
+        string section; //course section (i.e. 1310-001)
+        double grade; //current grade in the course
+        vector <Assignment> myAssignments; //vector of Assignment type holding all current assignments for the course
     
     public:
         //Constructors\\:
@@ -36,11 +36,12 @@ class Courses{
 
         }//end of default constructor
 
-        Courses(string studentName, string studentSection, double studentGrade){
+        Courses(string studentName, string studentSection, double studentGrade, vector <Assignment> userAssignments){
 
             this->name = studentName;
             this->section = studentSection;
             this->grade = studentGrade;
+            this->myAssignments = userAssignments;
 
         }//end of overloaded constructor
 
