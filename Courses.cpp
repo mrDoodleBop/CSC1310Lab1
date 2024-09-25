@@ -11,7 +11,7 @@
 
 string Courses::getName(){
 
-    return this->name;
+    return name;
 
 }//end of getName() constructor function
 
@@ -25,12 +25,8 @@ void Courses::printInfo(){
 
     cout << "\n\t\t|----------Your Current Assignments----------|";
 
-    //Running a for loop to access each assignment in the vector and call the getInfo function:
-    for(int i = 0; i < myAssignments.size(); i++){
-
-        myAssignments[i].getInfo();
-
-    }//end of for loop
+    //print the assignment info for each element in assignments:
+    
 
 }//end of printInfo function
 

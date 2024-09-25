@@ -47,7 +47,7 @@ class Assignment
 
         //Methods:
         void getInfo();
-
+        void setInfo(string assignmentName, string assignmentDueDate, int assignmentPriorityLevel, string assignmentNotes);
 };
 
 

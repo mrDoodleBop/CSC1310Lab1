@@ -6,12 +6,46 @@
 
 #include "Student.h"
 #include "Courses.h"
+#include "gitWorkinFunctions.h"
 
 #include <cstdlib>
 
 
 //main function:
 int main(){
+    /*
+        VARIABLE AND OBJECT DECLARATIONS
+    */
+    //Student class attributes:
+    string userName;
+    int userAge;
+    int userYear;
+
+    int numCourses;
+
+    //Course class attributes:
+    string courseName;
+    string courseSection;
+    double currentGrade;
+    vector <Assignment> currentAssignments;
+
+    char hasAssignments;
+    int numAssignments;
+
+    //Assignment class attributes:
+    string assignmentName;
+    string assignmentDueDate; //(mm/dd/yyyy)
+    int assignmentPriorityLevel; (1-5);
+    string assignmentNotes; //limited to 75 characters
+
+    //creating the vectors for student and courses:
+    vector <Courses> userCourses;
+    vector <Assignment> userAssignments;
+
+    //Object Declarations:
+    Assignment userAssignment; //Assignment object to store a new userAssignment
+    Courses userCourse; //Courses object to store a new userCourse
+    Student user; //Student object to store ALL student information
 
     //Variable declarations:
     char flag = 'y';
@@ -51,161 +85,29 @@ int main(){
 
         //Branching the user's choice:
         if(userChoice == 1){//create a new student
-
-            //Student class attributes:
-            string userName;
-            int userAge;
-            int userYear;
-
-            int numCourses;
-
-            //Course class attributes:
-            string courseName;
-            string courseSection;
-            double currentGrade;
-            vector <Assignment> currentAssignments;
-
-            char hasAssignments;
-            int numAssignments;
-
-            //Assignment class attributes:
-            string assignmentName;
-            string assignmentDueDate; //(mm/dd/yyyy)
-            int assignmentPriorityLevel; (1-5);
-            string assignmentNotes; //limited to 75 characters
-
-            //creating the vectors for student and courses:
-            vector <Courses> userCourses;
-            vector <Assignment> userAssignments;
             
-            //Asking the user their name:
-            cout << "\nPlease enter your name: ";
-            getline(cin, userName);
+            user = createStudent();
 
-            //Asking the user their age:
-            cout << "\nPlease enter your age: ";
-            cin >> userAge;
+        } else if(userChoice == 2){//add remove a course
+            
 
-            //Asking the user their year:
-            cout << "\nPlease enter your year (1, 2, 3, etc.): ";
-            cin >> userYear;
+            //variable for user choice:
+            int choice;
 
-            //Taking in the current courses that the user has:
-            //-->first by asking how many courses the student is taking:
-            cout << "\n\nHow many courses are you taking this semester? Enter an integer: ";
-            cin >> numCourses;
+            //Asking the user whether they would like to add a course or remove a course:
+            cout << "\n\t\tWould you like to add a course or remove a course? (1 to add, 0 to remove): ";
 
-            system("CLS");
-            cout << "\n\t\t-----Creating a New Course!-----";
+            //branching based off user's choice to add or remove:
+            switch(choice){
 
-            for(int i = 0; i < numCourses; i++){
+                case 1://add a course
 
-                cout << "\n\t\tEnter the course name: ";
-                cin.ignore();
-                getline(cin, courseName);
-                
+                    break;
+                case 0://remove a course
+                    break;
 
-                cout << "\n\t\tEnter the course section for " << courseName << ": ";
-                getline(cin, courseSection);
-
-                cout << "\n\t\tEnter your current grade in " << courseName << " - " << courseSection << ": ";
-                cin >> currentGrade;
-
-                //Checking if the user has any current assignments:
-                cout << "\n\t\tDo you have any current assignments in " << courseName << " - " << courseSection << "? (y/n): ";
-                cin >> hasAssignments;
-
-                /*
-                --> This is a problem that I ran into with creating classes using the switch statement 
-                    I have learned that you need to declare the class outside of the switch to correct the 
-                    scope of the class
-                */
-
-               Assignment userAssignment; //Assignment object to store a new userAssignment
-               Courses userCourse; //Courses object to store a new userCourse
-
-                //branching based off if the student has any current assignments or not:
-                switch(hasAssignments){
-
-                    case 'y':
-                        //creating the assignments to go into the course class:
-                        cout << "\n\t\tEnter the number of assignments you currently have for " << courseName << " - " << courseSection << ": ";
-                        cin >> numAssignments;
-
-                        //Creating each assignment:
-                        for(int j = 0; j < numAssignments; j++){
-                            
-                            //taking in the assignment name:
-                            cout << "\n\t\tEnter assignment " << j+1 << "'s name: ";
-                            cin.ignore();
-                            getline(cin, assignmentName);
-
-                            //taking in the due date:
-                            cout << "\n\t\tEnter assignment " << j+1 << "'s due date (mm/dd/yyyy): ";
-                            getline(cin, assignmentDueDate);
-
-                            //taking in the priority level:
-                            cout << "\n\t\tEnter assignment " << j+1 << "'s priority level (1-5): ";
-                            cin >> assignmentPriorityLevel;
-
-                            //validating that user input is within the correct range:
-                            while(assignmentPriorityLevel > 5 || assignmentPriorityLevel < 1){
-
-                                cout << "\n\t\tUh oh! You entered a number outside of the range!\n\t\tEnter a number between 1 and 5: ";
-                                cin >> assignmentPriorityLevel;
-
-                            }//end of while loop
-
-                            //taking in the assignment notes:
-                            cout << "\n\t\tEnter any other notes you have for the assignment (limited to 75 characters): ";
-                            cin.ignore();
-                            getline(cin, assignmentNotes);
-
-                            //validating that user input is within the correct range:
-                            while(assignmentNotes.size() > 75){
-
-                                cout << "\n\t\tUh oh! Your notes for this assignment are too long!\n\t\tPlease enter notes within 75 characters: ";
-                                cin >> assignmentNotes;
-
-                            }
-
-                            //creating the assignment object and adding it to the vector:
-                            userAssignment = Assignment(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
-
-                            userAssignments.push_back(userAssignment);
-
-
-                        }//end of for loop creating assignments vector
-
-                        //adding the course to the list of user courses:
-                        userCourse = Courses(courseName, courseSection, currentGrade, userAssignments);
-
-                        userCourses.push_back(userCourse);
-
-
-                        /*
-                        -->THIS IS TESTER CODE TO MAKE SURE THE 
-                        PROGRAM IS WORKING CORRECTLY UP TO THIS POINT
-                        */
-                        //printing all course info for each course:
-                        for(int j = 0; j < userCourses.size(); j++){
-
-                            userCourses[i].printInfo();
-
-                        }
-
-
-                        break;
-
-
-                    case 'n':
-                        break;
-
-                }//end of switch
-
-            }//end of for loop creating courses vector
-
-        } else if(userChoice == 2){//add/ remove a course
+            }//end of switch statemenet
+            
             cout << "2";
         } else if(userChoice == 3){//add/ remove an assignment
             cout << "3";

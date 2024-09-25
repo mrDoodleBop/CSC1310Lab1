@@ -19,3 +19,12 @@ void Assignment::getInfo(){
     cout << "\n\t\t------------------------------------------";
 
 }//end of getInfo() function
+
+void Assignment::setInfo(string assignmentName, string assignmentDueDate, int assignmentPriorityLevel, string assignmentNotes){
+
+    name = assignmentName;
+    dueDate = assignmentDueDate;
+    priorityLevel = assignmentPriorityLevel;
+    notes = assignmentNotes;
+
+}//end of setInfo() function

@@ -21,8 +21,8 @@ class Student  {
         string name;
         int age;
         int year;
-        //vector of Courses type
-        vector <Courses> myCourses;
+        //array of Courses type
+        Courses myCourses;
 
     public:
         //Constructors:
@@ -33,11 +33,11 @@ class Student  {
             year = 1;
         }
 
-        Student(string studentName, int studentAge, int studentYear, vector <Courses> courses){
+        Student(string studentName, int studentAge, int studentYear, Courses* courses){
             name = studentName;
             age = studentAge;
             year = studentYear;
-            myCourses = courses;
+            myCourses = *courses;
         }
 
         //Member Function Declarations:

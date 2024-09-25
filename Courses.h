@@ -22,7 +22,7 @@ class Courses{
         string name; //name of the course
         string section; //course section (i.e. 1310-001)
         double grade; //current grade in the course
-        vector <Assignment> myAssignments; //vector of Assignment type holding all current assignments for the course
+        Assignment myAssignments; //array of Assignment type holding all current assignments for the course
     
     public:
         //Constructors\\:
@@ -34,12 +34,12 @@ class Courses{
 
         }//end of default constructor
 
-        Courses(string studentName, string studentSection, double studentGrade, vector <Assignment> userAssignments){
+        Courses(string courseName, string studentSection, double studentGrade, Assignment* assignments){
 
-            name = studentName;
+            name = courseName;
             section = studentSection;
             grade = studentGrade;
-            myAssignments = userAssignments;
+            myAssignments = *assignments;
 
         }//end of overloaded constructor
 
