@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -21,8 +20,10 @@ class Student  {
         string name;
         int age;
         int year;
+        int numCourses;
+
         //array of Courses type
-        Courses myCourses;
+        Courses* myCourses;
 
     public:
         //Constructors:
@@ -31,17 +32,51 @@ class Student  {
             name = "John Doe";
             age = 18;
             year = 1;
+            numCourses = 0;
+
+            myCourses[numCourses];
         }
 
-        Student(string studentName, int studentAge, int studentYear, Courses* courses){
+        Student(string studentName, int studentAge, int studentYear, int numUserCourses, Courses* courses[]){
             name = studentName;
             age = studentAge;
             year = studentYear;
-            myCourses = *courses;
+            numCourses = numUserCourses;
+
+            myCourses[numCourses];
+            
+            
+            for(int i = 0; i < numCourses; i++){
+
+                myCourses[i] = *courses[i];
+                
+            }
         }
 
         //Member Function Declarations:
         void printStudentInfo();
+
+        //GETTER functions:
+        Courses getUserCourses();
+
+        string getUserName();
+
+        int getUserAge();
+
+        int getUserYear();
+
+        int getNumCourses();
+
+        //MUTATOR functions:
+        void setUserCourses(Courses newCoursesArr[], int newCoursesArrLength);
+
+        void setUserName(string userName);
+
+        void setUserAge(int userAge);
+
+        void setUserYear(int userYear);
+
+        void setNumCourses(int numCourses); 
    
 };
 

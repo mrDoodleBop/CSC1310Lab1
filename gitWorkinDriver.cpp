@@ -4,51 +4,23 @@
     Purpose : Main file for the GitWorkin! program
 */
 
-#include "Student.h"
-#include "Courses.h"
-#include "gitWorkinFunctions.h"
 
-#include <cstdlib>
+#include "gitWorkinFunctions.h"//outside functions header file
+//#include "Student.h"//Student class header file
+//#include "Courses.h"//Courses class header file
+//#include "Assignment.h"//Assignment class header file
+
+
 
 
 //main function:
 int main(){
-    /*
-        VARIABLE AND OBJECT DECLARATIONS
-    */
-    //Student class attributes:
-    string userName;
-    int userAge;
-    int userYear;
 
-    int numCourses;
-
-    //Course class attributes:
-    string courseName;
-    string courseSection;
-    double currentGrade;
-    vector <Assignment> currentAssignments;
-
-    char hasAssignments;
-    int numAssignments;
-
-    //Assignment class attributes:
-    string assignmentName;
-    string assignmentDueDate; //(mm/dd/yyyy)
-    int assignmentPriorityLevel; (1-5);
-    string assignmentNotes; //limited to 75 characters
-
-    //creating the vectors for student and courses:
-    vector <Courses> userCourses;
-    vector <Assignment> userAssignments;
-
-    //Object Declarations:
-    Assignment userAssignment; //Assignment object to store a new userAssignment
-    Courses userCourse; //Courses object to store a new userCourse
-    Student user; //Student object to store ALL student information
+    //This object will hold all student, course, and assignment data throughout the entire program:)
+    Student user;
 
     //Variable declarations:
-    char flag = 'y';
+    char flag;
 
     //Printing welcome screen:
     system("CLS");
@@ -86,7 +58,11 @@ int main(){
         //Branching the user's choice:
         if(userChoice == 1){//create a new student
             
-            user = createStudent();
+            user =  createStudent();
+
+            cout << "\n\n\t\tThe program is still running -> check 1";
+
+            user.printStudentInfo();
 
         } else if(userChoice == 2){//add remove a course
             
@@ -96,14 +72,22 @@ int main(){
 
             //Asking the user whether they would like to add a course or remove a course:
             cout << "\n\t\tWould you like to add a course or remove a course? (1 to add, 0 to remove): ";
+            cin >> choice;
+
+            system("CLS");
 
             //branching based off user's choice to add or remove:
             switch(choice){
 
                 case 1://add a course
 
+                    //GITWORKINFUNCTIONS_H::addCourse(user);
+
                     break;
                 case 0://remove a course
+
+                    //GITWORKINFUNCTIONS_H::removeCourse(user);
+
                     break;
 
             }//end of switch statemenet
@@ -117,9 +101,7 @@ int main(){
             break;
         }
 
-        cout << "The program is still running!";
-
-
+        cout << "\n\n\t\tThe program is still running! -> check 2";
     }//end of while loop
 
 }//end of main function

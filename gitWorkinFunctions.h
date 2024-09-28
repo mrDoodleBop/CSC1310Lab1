@@ -8,13 +8,12 @@
 #ifndef GITWORKINFUNCTIONS_H
 #define GITWORKINFUNCTIONS_H
 
+#include "Student.h"//Student class header file
+#include "Courses.h"//Courses class header file
+#include "Assignment.h"//Assignment class header file
 
 #include <iostream>
 #include <string>
-
-#include "Courses.h"
-#include "Student.h"
-#include "Assignment.h"
 
 using namespace std;
 
@@ -26,13 +25,13 @@ Assignment createAssignment();
 
 Student createStudent();
 
-void addAssignment();
+void addAssignment(Student user);
 
-void removeAssignment();
+void removeAssignment(Student user);
 
-void addCourse();
+void addCourse(Student user);
 
-void removeCourse();
+void removeCourse(Student user);
 
 
 #endif

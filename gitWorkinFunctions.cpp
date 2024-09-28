@@ -62,7 +62,10 @@ Assignment createAssignment(){
         cin >> assignmentNotes;
     }//end of while loop
 
-    task.setInfo(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
+    //task.setInfo(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
+
+    task = Assignment(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
+    cout << "\n\t\tAssignment created and returned.";
 
     //return value:
     return task;
@@ -110,29 +113,31 @@ Courses createCourse(){
     cin >> hasAssignments;
 
     //Branching based on the value of hasAssignments:
-    switch(hasAssignments){
 
-        case 'y':
-            //creating the assignments to go into the course class:
-            cout << "\n\t\tEnter the number of assignments you currently have for " << courseName << " - " << courseSection << ": ";
-            cin >> numAssignments;
+    if(hasAssignments == 'y' || hasAssignments == 'Y'){
+        //creating the assignments to go into the course class:
+        cout << "\n\t\tEnter the number of assignments you currently have for " << courseName << " - " << courseSection << ": ";
+        cin >> numAssignments;
 
-            currentAssignments = new Assignment[numAssignments];
+        currentAssignments[numAssignments];
 
-            //for loop to create numAssignments number of assignment objects:
-            for(int i = 0; i < numAssignments; i++){
+        //for loop to create numAssignments number of assignment objects:
+        for(int i = 0; i < numAssignments; i++){
 
-                currentAssignments[i] = createAssignment();
+            currentAssignments[i] = createAssignment();
+            cout << "\n\t\tAssignment created inside of the for loop. Reiterating...";
 
-            }//end of for loop
-            break;
-        case 'n'://has no assignments
-            break;
+        }//end of for loop
+        
+    } else {
 
+        //user has no current assignments:
+        cout << "\n\t\tLucky you! Enjoy your rare freetime!";
 
-    }//end of switch statement
+    }//end of branching statement
 
     tempCourse = Courses(courseName, courseSection, currentGrade, currentAssignments);
+    cout << "\n\t\tCourse created, now returning from the function...";
 
     //return value
     return tempCourse;
@@ -167,7 +172,7 @@ Student createStudent(){
     Courses userCourse; //Courses object to store a new userCourse
     Student user; //Student object to store ALL student information
 
-    cout << "\n\n\t|----------Creating a New Student!----------|";
+    cout << "\n\n\t\t|----------Creating a New Student!----------|";
 
     //Asking the user their name:
     cout << "\n\t\tPlease enter your name: ";
@@ -185,7 +190,7 @@ Student createStudent(){
     //-->first by asking how many courses the student is taking:
     cout << "\n\n\t\tHow many courses are you taking this semester? Enter an integer: ";
     cin >> numCourses;
-    userCourses = new Courses[numCourses];
+    userCourses[numCourses];
 
     //Checking if the user is taking any courses or not:
     if(numCourses == 0){
@@ -198,19 +203,14 @@ Student createStudent(){
         for(int i = 0; i < numCourses; i++){
 
             userCourses[i] = createCourse();
+            cout << "\n\n\t\t" << userCourses[i].getName() << " has been created\nMoving on to create the next course!";
 
         }//end of for loop
 
     }
 
-    //creating numCourses number of courses for the user
-    for(int i = 0; i < numCourses; i++){
-
-        userCourses[i] = createCourse();
-
-    }//end of for loop
-
-    user = Student(userName, userAge, userYear, userCourses);
+    user = Student(userName, userAge, userYear, numCourses, &userCourses);
+    cout << "Student created, now returning from the function...";
 
     //return value:
     return user;
@@ -225,7 +225,7 @@ Student createStudent(){
     Purpose : add an assignment to a specific course in the courses array in the Student object
 */
 
-void addAssignment(){
+void addAssignment(Student user){
 
 }//end of addAssignment function
 
@@ -236,18 +236,46 @@ void addAssignment(){
     Purpose : remove an assignment from a specific course in the courses array in the Student object
 */
 
-void removeAssignment(){
+void removeAssignment(Student user){
 
 }//end of removeAssignment function
 
 /*
     Name : addCourse
-    Arguments : none
+    Arguments : the user's list of courses
     Returns : none
     Purpose : add a course to the courses array in the Student object
+        --> this function calls the createCourse function
 */
 
-void addCourse(){
+void addCourse(Student user){
+
+    Courses* oldArr;
+
+    Courses tempCourse;
+    cout << "\n\t\t|----------Adding a Course to Your Transcript!----------|\n";
+    
+    tempCourse = createCourse();
+
+    //Resizing the userCourses array in order to add a course:
+    *oldArr = user.getUserCourses();
+
+    Courses newArr[user.getNumCourses() + 1];
+
+    //adding courses from oldArr to newArr:
+    for(int i = 0; i < user.getNumCourses(); i++){
+
+        newArr[i] = oldArr[i];
+
+    }//end of for loop
+
+    //Adding the new course to the new array:
+
+    Courses newCourse = createCourse();
+
+    newArr[user.getNumCourses()] = newCourse;
+
+    user.setUserCourses(newArr, user.getNumCourses()+1);
 
 }//end of addCourse function
 
@@ -258,12 +286,46 @@ void addCourse(){
     Purpose : remove a course from the courses array in the Student object
 */
 
-void removeCourse(){
+void removeCourse(Student user){
+
+    int numCourses = user.getNumCourses();
+    Courses oldArr[numCourses] = {user.getUserCourses()};
+    
+    Courses newArr[numCourses-1];
+
+    //Variable to store the user's choice:
+    int choice;
+
+    //Asking user which course they would like to remove:
+    cout << "\n\n\t|---------Removing a Course from Your Transcript!---------|";
+    cout << "\n\t\tWhich course would you like to remove? Enter one of the options below (1, 2, 3, etc.): ";
+
+    //Printing each course in the old array:
+    for(int i = 0;i < numCourses; i++){
+
+        cout << "\n\t\t" << i + 1 << ": " << oldArr[i].getName();
+
+    }//end of for loop
+
+    cout << endl;
+    cin >> choice;
+
+    //Adding all courses to the new array except for at index choice - 1:
+    for(int i = 0; i < numCourses - 1; i++){
+
+        if(i = (choice-1)){//if the current index matches that of the removed course
+
+            cout << "\n\t\tRemoving " << oldArr[i].getName() << " from the array!";
+
+        } else { //otherwise add the course at the current index to the new list
+
+            newArr[i] = oldArr[i];
+
+        }
+
+    }//end of for loop
+
+    user.setUserCourses(newArr, numCourses-1);
 
 }//end of removeCourse function
-
-
-
-
-
 

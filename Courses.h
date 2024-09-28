@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -28,9 +27,9 @@ class Courses{
         //Constructors\\:
         Courses(){
             
-            this->name = "N/A";
-            this->section = "N/A";
-            this->grade = 0.0;
+            name = "N/A";
+            section = "N/A";
+            grade = 0.0;
 
         }//end of default constructor
 
