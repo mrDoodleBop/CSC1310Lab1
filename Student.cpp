@@ -5,6 +5,7 @@
 */
 
 #include "Student.h"
+#include "gitWorkinFunctions.h"
 
 //Function Definitions:
 
@@ -29,19 +30,6 @@ void Student::printStudentInfo(){
 }//end of printStudentInfo() function
 
 /*MUTATOR FUNCTIONS*/
-void Student::setUserCourses(Courses newCoursesArr[], int newCoursesArrLength){
-
-    Courses result[newCoursesArrLength];
-
-    //Add courses from the inputted array into a new array and set that equal to myCourses:
-    for(int i = 0; i < newCoursesArrLength; i++){
-
-        result[i] = newCoursesArr[i];
-
-    }//end of for loop
-    
-
-}//end of set user courses array
 
 void Student::setUserName(string userName){
 
@@ -61,16 +49,17 @@ void Student::setUserYear(int userYear){
 
 }//end of set user year function
 
-void Student::setNumCourses(int numUserCourses){
-
-    numCourses = numUserCourses;
-
-}//end of set num courses function
 
 /*GETTER FUNCTIONS*/
-Courses Student::getUserCourses(){
+void Student::getUserCourses(){
 
-    return *myCourses;
+    //for loop:
+    for(int i = 0; i < numCourses; i++){
+
+        //Calling the info getter function from courses:+
+        myCourses[i].printCourseInfo();
+
+    }//end of for loop
 
 }//end of courses getter function
 
@@ -91,10 +80,4 @@ int Student::getUserYear(){
     return year;
 
 }//end of get user year function
-
-int Student::getNumCourses(){
-
-    return numCourses;
-
-}//end of get num courses function
 

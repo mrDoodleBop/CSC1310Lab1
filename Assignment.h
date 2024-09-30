@@ -24,11 +24,11 @@ class Assignment
         //default constructor:
         Assignment()
         {
-        // overloaded constructor takes in info
-        name = "John Doe";
-        dueDate = "12/34/5678";
-        priorityLevel = 1;
-        // notes;
+            // overloaded constructor takes in info
+            name = "John Doe";
+            dueDate = "12/34/5678";
+            priorityLevel = 1;
+            // notes;
         }
 
         //overloaded constructor:
@@ -40,14 +40,23 @@ class Assignment
             notes = assignmentNotes;
 
         }          
-        
-        // destructor
-        //~Assignment();
-
 
         //Methods:
+
+        //getter methods:
         void getInfo();
-        void setInfo(string assignmentName, string assignmentDueDate, int assignmentPriorityLevel, string assignmentNotes);
+
+        string getName();
+        string getDueDate();
+        int getPriorityLevel();
+        string getNotes();
+
+        //mutator methods:
+        void setName(string);
+        void setDueDate(string);
+        void setPriorityLevel(int);
+        void setNotes(string);
+    
 };
 
 

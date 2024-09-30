@@ -42,8 +42,8 @@ int main(){
         cout << "\n\n\t\t\t|----------Menu----------|";
         cout << "\n\t\t------What would you like to do?-----";
         cout << "\n\t\t1. Create a New Student";
-        cout << "\n\t\t2. Add/ Remove a Course";
-        cout << "\n\t\t3. Add/ Remove an Assignment to a course";
+        cout << "\n\t\t2. View Student Info";
+        cout << "\n\t\t3. View Course Info";//ask user to view individual course or all
         cout << "\n\t\t4. End Program";
         cout << "\n\t\t---------------------------------------------";
 
@@ -58,42 +58,19 @@ int main(){
         //Branching the user's choice:
         if(userChoice == 1){//create a new student
             
-            user =  createStudent();
+            user = createStudent();
 
             cout << "\n\n\t\tThe program is still running -> check 1";
 
             user.printStudentInfo();
 
-        } else if(userChoice == 2){//add remove a course
+        } else if(userChoice == 2){//view student info
             
 
-            //variable for user choice:
-            int choice;
-
-            //Asking the user whether they would like to add a course or remove a course:
-            cout << "\n\t\tWould you like to add a course or remove a course? (1 to add, 0 to remove): ";
-            cin >> choice;
-
-            system("CLS");
-
-            //branching based off user's choice to add or remove:
-            switch(choice){
-
-                case 1://add a course
-
-                    //GITWORKINFUNCTIONS_H::addCourse(user);
-
-                    break;
-                case 0://remove a course
-
-                    //GITWORKINFUNCTIONS_H::removeCourse(user);
-
-                    break;
-
-            }//end of switch statemenet
-            
             cout << "2";
-        } else if(userChoice == 3){//add/ remove an assignment
+        } else if(userChoice == 3){//view course info
+
+
             cout << "3";
         } else {
             //Displaying goodbye message:

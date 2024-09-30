@@ -21,7 +21,9 @@ class Courses{
         string name; //name of the course
         string section; //course section (i.e. 1310-001)
         double grade; //current grade in the course
-        Assignment myAssignments; //array of Assignment type holding all current assignments for the course
+        int numAssignments = 5;
+
+        Assignment myAssignments[5];
     
     public:
         //Constructors\\:
@@ -33,19 +35,34 @@ class Courses{
 
         }//end of default constructor
 
-        Courses(string courseName, string studentSection, double studentGrade, Assignment* assignments){
+        Courses(string courseName, string studentSection, double studentGrade, Assignment assignments[]){
 
             name = courseName;
             section = studentSection;
             grade = studentGrade;
-            myAssignments = *assignments;
+            
+            for(int i = 0; i < numAssignments; i++){
+
+                myAssignments[i] = assignments[i];
+                
+            }
 
         }//end of overloaded constructor
 
 
         //Member Functions\\:
+
+
+        //Getter Functions\\:
         string getName();
-        void printInfo();
+        string getSection();
+        double getGrade();
+        void printCourseInfo();
+
+        //Mutator Functions\\:
+        void setCourseName(string);
+        void setCourseSection(string);
+        void setCourseGrade(double);
 
 };//end of Courses class
 

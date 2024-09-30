@@ -25,13 +25,4 @@ Assignment createAssignment();
 
 Student createStudent();
 
-void addAssignment(Student user);
-
-void removeAssignment(Student user);
-
-void addCourse(Student user);
-
-void removeCourse(Student user);
-
-
 #endif
