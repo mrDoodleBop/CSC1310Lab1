@@ -16,15 +16,16 @@
     Purpose : Display the all student information in an easy to read format
 */
 void Student::printStudentInfo(){
-    cout << "\n\t\t----------STUDENT INFORMATION----------\n";
+    cout << "\n\n\n\t\t----------STUDENT INFORMATION----------\n";
     cout << "\n\t\tNAME :     " << name;
     cout << "\n\t\tAge  :     " << age;
     cout << "\n\t\tYear :     " << year;
-    cout << "\n\t\t----------COURSES----------\n";
+    cout << "\n\n\t\t----------COURSES----------\n";
 
     //Here will be a loop to iterate through the vector of courses and print out each course that the student is taking:
     for(int i = 0; i < numCourses; i++){
-        cout << "\n\t\tCourse " << i+1 << ": " << myCourses[i].getName();
+        //cout << "\n\t\tCourse " << i+1 << ": " << myCourses[i].getName();
+        myCourses[i].printCourseInfo();
     }
 
 }//end of printStudentInfo() function
@@ -62,6 +63,16 @@ void Student::getUserCourses(){
     }//end of for loop
 
 }//end of courses getter function
+
+Courses Student::returnUserCourses(){
+
+    Courses *courses;
+    
+    courses = myCourses;
+
+    return *courses;
+
+}//end of returnUserCourses function
 
 string Student::getUserName(){
 

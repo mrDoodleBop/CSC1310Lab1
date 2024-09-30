@@ -19,13 +19,13 @@ string Courses::getName(){
 
 void Courses::printCourseInfo(){
 
-    system("CLS");
-    cout << "\n\t\t|----------Your Course----------|";
+    //system("CLS");
+    cout << "\n\n\n\t\t|----------Your Course----------|";
     cout << "\n\t\tName: " << name;
     cout << "\n\t\tSection: " << section;
     cout << "\n\t\tCurrent Grade: " << grade;
 
-    cout << "\n\t\t|----------Your Current Assignments----------|";
+    cout << "\n\t\t|----------Assignments in " << name << " - " << section << "----------|";
 
     //print the assignment info for each element in assignments:
     for(int i = 0; i < 5; i++){

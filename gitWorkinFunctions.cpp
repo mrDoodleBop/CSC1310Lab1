@@ -30,8 +30,9 @@ Assignment createAssignment(){
     cout << "\n\n\t\t|----------Creating a New Assignment!----------|";
 
     //taking in the assignment name:
+    
     cout << "\n\t\tEnter assignment name: ";
-    cin.ignore();
+    
     getline(cin, assignmentName);
 
     //taking in the due date:
@@ -59,13 +60,14 @@ Assignment createAssignment(){
     while(assignmentNotes.size() > 75){
 
         cout << "\n\t\tUh oh! Your notes for this assignment are too long!\n\t\tPlease enter notes within 75 characters: ";
-        cin >> assignmentNotes;
+        getline(cin, assignmentNotes);
+        
     }//end of while loop
 
     //task.setInfo(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
 
     task = Assignment(assignmentName, assignmentDueDate, assignmentPriorityLevel, assignmentNotes);
-    cout << "\n\t\tAssignment created and returned.";
+    //cout << "\n\t\tAssignment created and returned.";
 
     //return value:
     return task;
@@ -86,7 +88,7 @@ Courses createCourse(){
     string courseSection;
     double currentGrade;
 
-    Assignment* currentAssignments;//pointer array
+    Assignment currentAssignments[5];//pointer array
 
     char hasAssignments;
     int numAssignments;
@@ -98,7 +100,7 @@ Courses createCourse(){
 
     //Creating a course using user input:
     cout << "\n\t\tEnter the course name: ";
-    cin.ignore();
+    
     getline(cin, courseName);
                 
 
@@ -122,10 +124,11 @@ Courses createCourse(){
         cout << "\n\t\tNow we will create the five assignments you have for this course:";
 
         //for loop to create numAssignments number of assignment objects:
+        cin.ignore();
         for(int i = 0; i < numAssignments; i++){
 
             currentAssignments[i] = createAssignment();
-            cout << "\n\t\tAssignment created inside of the for loop. Reiterating...";
+            //cout << "\n\t\tAssignment created inside of the for loop. Reiterating...";
 
         }//end of for loop
         
@@ -134,10 +137,12 @@ Courses createCourse(){
         //user has no current assignments:
         cout << "\n\t\tLucky you! Enjoy your rare freetime!";
 
+        cin.ignore();
+
     }//end of branching statement
 
     tempCourse = Courses(courseName, courseSection, currentGrade, currentAssignments);
-    cout << "\n\t\tCourse created, now returning from the function...";
+    //cout << "\n\t\tCourse created, now returning from the function...";
 
     //return value
     return tempCourse;
@@ -187,22 +192,39 @@ Student createStudent(){
     //Asking the user to enter the five courses they are taking this semester:
     cout << "\n\t\tNow we will add your five courses for the semester to your transcript: ";
 
+    cin.ignore();
+
     //creating numCourses number of courses for the user
     for(int i = 0; i < 5; i++){
 
+        if(i == 4){
+            cin.ignore();
+        }
+        
         userCourses[i] = createCourse();
-        cout << "\n\n\t\t" << userCourses[i].getName() << " has been created\nMoving on to create the next course!";
+        //cout << "\n\n\t\t" << userCourses[i].getName() << " has been created\n\t\tMoving on to create the next course!";
 
     }//end of for loop
 
-    
-
     user = Student(userName, userAge, userYear, userCourses);
-    cout << "Student created, now returning from the function...";
+    //cout << "Student created, now returning from the function...";
 
     //return value:
     return user;
 
 
 }//end of createStudentFunction
+
+/*
+    Name : displayCourseInfo()
+    Arguments : Student object
+    Returns : none
+    Purpose : Display either the info for all courses in the Student object or just a specific course
+*/
+
+void displayCourseInfo(Student user){
+
+    user.getUserCourses();
+
+}//end of displayCourseInfo function
 

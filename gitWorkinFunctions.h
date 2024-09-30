@@ -25,4 +25,5 @@ Assignment createAssignment();
 
 Student createStudent();
 
+void displayCourseInfo(Student);
 #endif

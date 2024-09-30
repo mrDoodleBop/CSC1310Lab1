@@ -23,7 +23,7 @@ int main(){
     char flag;
 
     //Printing welcome screen:
-    system("CLS");
+    //system("CLS");
     cout << "\n\n\t\t|----------STUDENT DATA CENTER----------|";
     cout <<"\n-----Track your student information, courses, and tasks here!-----";
 
@@ -38,7 +38,7 @@ int main(){
         int userChoice;
 
         //Printing the program menu:
-        system("CLS");
+        //system("CLS");
         cout << "\n\n\t\t\t|----------Menu----------|";
         cout << "\n\t\t------What would you like to do?-----";
         cout << "\n\t\t1. Create a New Student";
@@ -53,24 +53,25 @@ int main(){
 
         cin.ignore();
 
-        system("CLS");
+        //system("CLS");
 
         //Branching the user's choice:
         if(userChoice == 1){//create a new student
             
             user = createStudent();
 
-            cout << "\n\n\t\tThe program is still running -> check 1";
+            cout << "\n\n\t\tThe program is still running -> check 1\n";
 
             user.printStudentInfo();
 
         } else if(userChoice == 2){//view student info
             
-
+            user.printStudentInfo();
             cout << "2";
+
         } else if(userChoice == 3){//view course info
 
-
+            displayCourseInfo(user);
             cout << "3";
         } else {
             //Displaying goodbye message:
@@ -78,7 +79,11 @@ int main(){
             break;
         }
 
-        cout << "\n\n\t\tThe program is still running! -> check 2";
+        cout << "\n\n\n\t\tWould you like to open the menu again and continue? (y or n): ";
+        cin >> flag;
+
     }//end of while loop
+
+    cout << "\n\n\t\tClosing the program, have a great day!";
 
 }//end of main function

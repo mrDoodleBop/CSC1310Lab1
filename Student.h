@@ -32,9 +32,9 @@ class Student  {
             name = "John Doe";
             age = 18;
             year = 1;
-            numCourses = 0;
+            numCourses = 5;
 
-            myCourses[numCourses];
+            myCourses[5];
         }
 
         Student(string studentName, int studentAge, int studentYear, Courses courses[]){
@@ -54,6 +54,8 @@ class Student  {
 
         //GETTER functions:
         void getUserCourses();
+
+        Courses returnUserCourses();
 
         string getUserName();
 
