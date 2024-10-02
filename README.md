@@ -5,8 +5,6 @@
 # Project will be turned in for lab 1 in CSC1310
 # 
 # Purpose of the program is to act as a planner/ to-do list application for students
-# *****QUESTION FOR THE GROUP: when we are finished with the program, if we have more time, should we add functions into the program that write the user's student, course, and assignment
-#                              information to a text file that can be saved to their computer? I feel like this would add more realism to the program. It could make it something that is       #                              actually functional and useful in real life
 # 
 # 
 #   Classes to be used:
