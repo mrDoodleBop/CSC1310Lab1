@@ -1,0 +1,48 @@
+y
+1
+Humpty Dumpty
+19
+3
+CSC 1310
+001
+95.6
+n
+GEOL 1045
+005
+87.9
+n
+SLACKING
+101
+105.5
+y
+Binge Watch the Resident
+10/1/2024
+5
+HIGHEST OF IMPORTANCE AND VALUE 
+Play a Knockoff Flappy Bird Game 
+10/2/2024
+3
+HEALTHY FOR THE MIND
+Sleep for 10 Hours
+10/2/2024
+5
+NECESSARY FOR OPTIMAL SLACKING 
+Marathon the Harry Potter Movies
+10/3/2024
+3
+TEACHES THE VALUE OF FRIENDSHIP AND SKEPTICISM [RIP McGonagall :/ ]
+Watch the clock for one hour
+10/4/2024
+5
+TEACHES PATIENCE AND DISCIPLINE
+HIST 2010
+001
+67.8
+n 
+MATH 1910
+007
+79.89
+n
+y
+3
+n

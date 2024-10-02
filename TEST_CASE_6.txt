@@ -1,0 +1,52 @@
+y
+2
+y
+1
+Superman
+32
+4
+Saving the World
+101
+105.99
+y
+DEFEAT LEX LUTHOR IN A FIGHT
+10/5/2024
+2
+Easy peasy
+FLY FIVE LAPS AROUND THE WORLD
+10/15/2024
+2
+Stamina conditioning
+BULLY BATMAN
+10/2/2024
+5
+for fun
+RACE THE FLASH
+10/23/2024
+3
+punk human keeps thinking hes faster than you
+HAND OUT CANDY TO KIDS
+10/31/2024
+4
+keeps the followers up
+MATH 1910
+001
+50.5
+n
+CHEM 2100
+005
+67.7
+n
+COMM 1020
+007
+98.8
+n
+HIST 2010
+001
+76.4
+n
+y
+2
+y
+3
+n

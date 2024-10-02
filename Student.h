@@ -33,8 +33,6 @@ class Student  {
             age = 18;
             year = 1;
             numCourses = 5;
-
-            myCourses[5];
         }
 
         Student(string studentName, int studentAge, int studentYear, Courses courses[]){

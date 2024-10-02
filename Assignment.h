@@ -25,8 +25,8 @@ class Assignment
         Assignment()
         {
             // overloaded constructor takes in info
-            name = "John Doe";
-            dueDate = "12/34/5678";
+            name = "N/A";
+            dueDate = "N/A";
             priorityLevel = 1;
             // notes;
         }

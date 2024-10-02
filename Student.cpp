@@ -23,7 +23,7 @@ void Student::printStudentInfo(){
     cout << "\n\n\t\t----------COURSES----------\n";
 
     //Here will be a loop to iterate through the vector of courses and print out each course that the student is taking:
-    for(int i = 0; i < numCourses; i++){
+    for(int i = 0; i < 5; i++){
         //cout << "\n\t\tCourse " << i+1 << ": " << myCourses[i].getName();
         myCourses[i].printCourseInfo();
     }

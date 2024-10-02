@@ -18,6 +18,7 @@ int main(){
 
     //This object will hold all student, course, and assignment data throughout the entire program:)
     Student user;
+    Student defaultUser = Student();
 
     //Variable declarations:
     char flag;
@@ -60,19 +61,25 @@ int main(){
             
             user = createStudent();
 
-            cout << "\n\n\t\tThe program is still running -> check 1\n";
-
-            user.printStudentInfo();
+            //user.printStudentInfo();
 
         } else if(userChoice == 2){//view student info
-            
-            user.printStudentInfo();
-            cout << "2";
+
+            if(user.getUserName() == "John Doe"){
+
+                defaultUser.printStudentInfo();
+
+            } else {
+
+                user.printStudentInfo();
+
+            }
+
 
         } else if(userChoice == 3){//view course info
 
             displayCourseInfo(user);
-            cout << "3";
+
         } else {
             //Displaying goodbye message:
             cout << "\n\nClosing the program, have a great day!";
