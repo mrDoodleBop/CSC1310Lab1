@@ -1,7 +1,7 @@
 /*  
     File Name : Courses.cpp
-    Author Name : 
-    Purpose : 
+    Author Name : Mackenzie Raleigh
+    Purpose : .cpp file for the Courses class
 */
 
 #include "Courses.h"

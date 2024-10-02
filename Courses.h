@@ -1,7 +1,7 @@
 /*
     File Name : Courses.h
-    Author Name : 
-    Purpose : 
+    Author Name : Mackenzie Raleigh
+    Purpose : Header file for the Courses class
 */
 
 #ifndef COURSES_H

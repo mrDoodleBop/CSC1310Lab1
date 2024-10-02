@@ -1,7 +1,7 @@
 /*
     File Name : Assignment.cpp
-    Author Name :
-    Purpose : 
+    Author Name : Nino Chindavanh
+    Purpose : .cpp file for the Assignment class
 */
 
 
